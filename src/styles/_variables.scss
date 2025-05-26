@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+@import './mixin';
+
+// spacing 
+
+$indent__base : 16px;
+
+$indent_s: $indent__base / 2;
+$indent_m: $indent__base 8 1.5;
+$indent_l: $indent__base * 2;
+$indent__xl: $indent__base * 3;
+$indent__xxl: $indent__base * 4;
+$indent_xxxl: $indent__base * 5;
+
+//colours
+
+$color-white: #fff;
+$color-bright-sun: #fbd743;
+$color-torch-red: #ff1f1f;
+$color-malibu: #5db9ff;
+$color-minsk :#363b81;
+$color-gray :#919191;
+$color-dark-gray: #333;
+
+// utility colours
+
+$color-primary : $color-white;
+$background-primary: $color-dark-gray;
+
+//fonts
+
+$font-orbitron : "Orbitron","sans-serif";
+
+//Breakpoints
+
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 400px;
+
+//typecolours 
+
+$colours : (
+	normal: #A8A77A,
+	fire: #EE8130,
+	water: #6390F0,
+	electric: #F7D02C,
+	grass: #7AC74C,
+	ice: #96D9D6,
+	fighting: #C22E28,
+	poison: #A33EA1,
+	ground: #E2BF65,
+	flying: #A98FF3,
+	psychic: #F95587,
+	bug: #A6B91A,
+	rock: #B6A136,
+	ghost: #735797,
+	dragon: #6F35FC,
+	dark: #705746,
+	steel: #B7B7CE,
+	fairy: #D685AD,
+);
+
+@each $item, $index in $colours  { //for each loop for colours to create class name dynamically $colour and $value is local variable name
+    .pokemon__content--#{$item} {
+        @include button-style($index);
+        text-align: center;
+        text-transform: uppercase;
+        margin: $indent__base;
+
+         h1 {
+            color: $index;
+           
+         }
+    }
+}
+
+@each $colour, $value in $colours {
+    .pokemon__content--image-#{$colour} {
+        @include flexrow;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: $value;
+        max-width: 500px;
+        height: 400px;
+        margin: auto;
+        margin-bottom: $indent__xl
+    }
+}
+
+// @each $item, $index in $colours {
+//     .pokemon__types--#{$item} {
+//         color: $index;
+//         text-transform: uppercase;
+//         text-align: center;
+//         font-weight: bold;
+//     }
+// }
+

@@ -1,0 +1,27 @@
+@import '../../styles/mixin';
+@import '../../styles/variables';
+
+.pokemon {
+    &__types {
+        @include flexrow;
+        @include page-layout($indent__xl, auto);
+        flex-wrap: wrap;
+        gap: $indent__base;
+
+        a {
+            display: inline-block;
+            flex: 0 0 150px;
+            text-decoration: none;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+    }
+
+    // &__content {
+
+    //     h1 {
+    //         color: aqua;
+    //     }
+    // }
+}

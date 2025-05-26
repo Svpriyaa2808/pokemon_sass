@@ -1,0 +1,107 @@
+@import '../styles/variables';
+@import '../styles/mixin';
+
+* {
+    box-sizing: border-box;
+}
+
+.header {
+    @include flexrow; 
+    gap: $indent__base;
+    padding: 0 $indent_m;
+
+    img {
+        height: auto;
+        width: 100%;
+    }
+
+    &__icon,
+    &__avatar {
+        display: none;
+        
+        @include responsive-tablet {
+            display: block;
+            width: 150px;
+        }
+        
+    }
+
+    &__logo {
+        flex-grow: 1;
+        
+        @include responsive-tablet{
+            padding: 0 $indent__xxl;
+        }
+        
+    }
+}
+
+.menu {
+    @include flexrow;
+    @include page-layout($indent__xl, auto);
+    background-color: $background-primary;
+
+    @include responsive-tablet {
+        padding: 0 $indent_l;
+    }
+
+    &__item {
+    
+        &--home {
+            @include menu-item;
+        }
+
+        &--pokemon {
+            @include menu-item($color-torch-red);
+        }
+
+        &--types{
+            @include menu-item($color-bright-sun);
+        }
+
+        &--about {
+            @include menu-item($color-malibu);
+        }
+    }
+      
+}
+
+.home-grid {
+    @include responsive-mobile{
+        display: grid;
+        gap: $indent__base;
+        grid-template: repeat(3,1fr)/repeat(3, 1fr);
+        grid-template-areas: ". . ."
+                             "main main ."
+                             "main main .";
+    }
+
+    &__article {
+        margin-bottom: $indent__base;
+
+        @include responsive-mobile {
+            margin-bottom: 0;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        &.primary {
+            @include home-grid-article($color-bright-sun);
+        }
+
+        &.secondary{
+            @include home-grid-article($color-minsk);
+        }
+
+        &.tertiary {
+            @include home-grid-article($color-torch-red);
+        }
+
+        &.featured {
+            @include home-grid-article($color-malibu);
+            grid-area: main;
+        }
+    }
+}

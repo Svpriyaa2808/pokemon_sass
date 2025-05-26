@@ -1,0 +1,31 @@
+@import '../../styles/variables';
+@import '../../styles/mixin';
+
+.pokemon {
+
+    &__container {
+        @include page-layout($indent__xl , auto);
+        text-align: center;
+
+        &--button {
+            @include button-style;
+            margin: 64px;
+        }
+    }
+
+    &__content {
+
+        &--name {
+            text-align: center;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin: $indent__xl;
+        }
+
+        &--types {
+            text-align: center;
+        }
+    }
+   
+}

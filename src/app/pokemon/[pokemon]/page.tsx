@@ -2,9 +2,18 @@ import DisplayPokemon from "@/components/Displaypokemon";
 import { PokemonType } from "@/utils/types";
 import Link from "next/link";
 
+interface PageProps {
+    params: {
+      pokemon: string;
+    };
+  }
+  
+ 
+  
+
 let pokemonData:PokemonType
-const PokemonPage = async  ({params}: {params: {pokemon:string}}) => {
-    const {pokemon} =await params;
+export default async function PokemonPage ({params}: PageProps) {
+    const {pokemon} =params;
 
     try {
           
@@ -32,6 +41,6 @@ const PokemonPage = async  ({params}: {params: {pokemon:string}}) => {
     )
 }
 
-export default PokemonPage
+
         
     

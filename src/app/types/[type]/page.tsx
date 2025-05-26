@@ -16,7 +16,7 @@ interface PageProps {
 
 let data: PokemonType[];
 
-const TypePage = async  ({params}: PageProps) => {
+export default async function TypePage  ({params}: PageProps) {
     const {type} =await params;
     
 
@@ -40,4 +40,3 @@ const TypePage = async  ({params}: PageProps) => {
     )
 }
 
-export default TypePage

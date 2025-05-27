@@ -7,17 +7,12 @@ interface PokemonType {
     }
 }
 
-// type PageProps = Promise<{ type: string }>;
-interface PageProps {
-    params: {
-      type: string;
-    };
-  }
+type PageProps = Promise<{ type: string }>;
 
 let data: PokemonType[];
 
 export default async function TypePage  ({params}: {params:PageProps} ) {
-    const { type } = params.params;
+    const { type } = await params;
     
 
     try {
